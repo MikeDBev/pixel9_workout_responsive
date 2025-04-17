@@ -1,17 +1,8 @@
-# Pixel 9 Workout Tracker
+# Pixel 9 Workout Tracker (200 × 200 px images)
 
-Static site ready for GitHub Pages.
+Thumbnails are now fixed at **200 × 200 px** for clearer visuals.
 
-## How to publish
+1. Upload all files to your repository root.
+2. Enable GitHub Pages (Settings ▸ Pages ▸ Source: `main` ▸ Folder `/`).
+3. Open the live URL—images display at 200 px square.
 
-1. **Create a new repo** (e.g. `pixel9-workout`).
-2. Upload *all* files in this folder to the root of the repo.
-3. Open **Settings ▸ Pages** and choose:
-   * **Source**: `main` (or your default branch)
-   * **Folder**: `/ (root)`
-4. Save → GitHub builds and gives you a URL:<br>
-   `https://<username>.github.io/<repo>/`
-
-Open that link on your phone → Chrome ⋮ menu ▸ **Add to Home screen**.
-
-Progress is stored in `localStorage`, so each device keeps its own checklist.
