@@ -6,188 +6,164 @@
   <title>Pixel 9 Fat‑Loss Workout Tracker</title>
   <style>
     :root {
-      --dark: #0d0d0d;
-      --light: #ffffff;
-      --gray: #f5f5f5;
-      --accent: #32b768;
-      font-size: 16px;
+      --dark:#0d0d0d;
+      --light:#ffffff;
+      --gray:#f5f5f5;
+      --accent:#32b768;
+      font-size:16px;
     }
-    *,*::before,*::after { box-sizing: border-box; }
-    body {
-      margin: 0;
-      font-family: system-ui, -apple-system, Roboto, 'Helvetica Neue', sans-serif;
-      background: var(--gray);
-      color: #333;
-      -webkit-font-smoothing: antialiased;
+    *,*::before,*::after{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family:system-ui,-apple-system,Roboto,'Helvetica Neue',sans-serif;
+      background:var(--gray);
+      color:#333;
+      -webkit-font-smoothing:antialiased;
     }
-    header {
-      background: var(--dark);
-      color: var(--light);
-      padding: 1rem;
-      text-align: center;
+    header{
+      background:var(--dark);
+      color:var(--light);
+      padding:1rem;
+      text-align:center;
     }
-    h1 { font-size: 1.6rem; margin: 0; }
-    .container { padding: 1rem; max-width: 680px; margin: 0 auto; }
-    section { margin-bottom: 2rem; }
-    h2 { font-size: 1.25rem; margin-bottom: .5rem; }
-    ul { padding-left: 1.25rem; }
-    li+li { margin-top: .35rem; }
+    h1{font-size:1.6rem;margin:0}
+    .container{padding:1rem;max-width:680px;margin:0 auto}
+    section{margin-bottom:2rem}
+    h2{font-size:1.25rem;margin-bottom:.5rem}
+    ul{padding-left:1.25rem}
+    li+li{margin-top:.35rem}
 
-    /* Exercise cards: mobile‑first column layout */
-    .exercise-card {
-      position: relative;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      text-align: center;
-      gap: 0.75rem;
-      background: var(--light);
-      border-radius: 12px;
-      box-shadow: 0 1px 3px rgba(0,0,0,.08);
-      padding: 1.25rem;
-      margin-bottom: 1.25rem;
+    /* Card layout */
+    .exercise-card{
+      position:relative;
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      text-align:center;
+      gap:.75rem;
+      background:var(--light);
+      border-radius:12px;
+      box-shadow:0 1px 3px rgba(0,0,0,.08);
+      padding:1.25rem;
+      margin-bottom:1.25rem;
     }
-
-    .exercise-card img {
-      width: 64px;
-      height: auto;
-      border-radius: 6px;
-      flex-shrink: 0;
+    /* Responsive image using clamp */
+    .exercise-card img{
+      width:clamp(56px,18vw,120px);
+      height:auto;
+      border-radius:6px;
+      flex-shrink:0;
     }
-    .exercise-info h3 { margin: 0 0 .25rem 0; font-size: 1rem; }
-    .exercise-info p { margin: 0; font-size: .85rem; line-height: 1.35; }
+    .exercise-info h3{margin:0 0 .25rem 0;font-size:1rem}
+    .exercise-info p{margin:0;font-size:.85rem;line-height:1.35}
 
-    /* Checkbox */
-    .exercise-card input[type='checkbox'] {
-      position: absolute;
-      top: .75rem;
-      right: .75rem;
-      width: 22px;
-      height: 22px;
-      accent-color: var(--accent);
-      cursor: pointer;
+    .exercise-card input[type='checkbox']{
+      position:absolute;
+      top:.75rem;
+      right:.75rem;
+      width:22px;height:22px;
+      accent-color:var(--accent);
+      cursor:pointer;
     }
-    .completed { opacity: .45; text-decoration: line-through; }
+    .completed{opacity:.45;text-decoration:line-through}
 
-    footer { text-align: center; font-size: .75rem; color: #666; padding: 2rem 0 1rem; }
+    footer{text-align:center;font-size:.75rem;color:#666;padding:2rem 0 1rem}
 
-    /* Breakpoint ≥500px: row layout */
-    @media (min-width: 500px) {
-      .exercise-card { flex-direction: row; text-align: left; }
-      .exercise-card img { width: 96px; margin: 0; }
-    }
-
-    /* Breakpoint ≥760px: larger images */
-    @media (min-width: 760px) {
-      .exercise-card img { width: 110px; }
+    @media(min-width:500px){
+      .exercise-card{flex-direction:row;text-align:left}
     }
   </style>
 </head>
 <body>
-  <header><h1>Weekly Bodyweight Plan</h1></header>
+<header><h1>Weekly Bodyweight Plan</h1></header>
+<main class="container">
+<section aria-label="Weekly Schedule">
+  <h2>Weekly Schedule</h2>
+  <ul>
+    <li><strong>3–4 days/week:</strong> Monday, Wednesday, Friday, Sunday</li>
+    <li><strong>Active recovery</strong> (walk, gentle stretch) on off‑days</li>
+    <li>3 sets per exercise · 30–60 s rest between sets</li>
+    <li><strong>Warm‑up:</strong> 5 min brisk walk/jog in place</li>
+    <li><strong>Cool‑down:</strong> 5 min stretching</li>
+  </ul>
+</section>
 
-  <main class="container">
+<section aria-label="Workout Routine">
+<h2>Workout Routine</h2>
 
-    <section aria-label="Weekly Schedule" class="schedule">
-      <h2>Weekly Schedule</h2>
-      <ul>
-        <li><strong>3–4 days/week:</strong> Monday, Wednesday, Friday, Sunday</li>
-        <li><strong>Active recovery</strong> (walk, gentle stretch) on off‑days</li>
-        <li>3 sets per exercise · 30–60 s rest between sets</li>
-        <li><strong>Warm‑up:</strong> 5 min brisk walk/jog in place</li>
-        <li><strong>Cool‑down:</strong> 5 min stretching</li>
-      </ul>
-    </section>
+<article class="exercise-card" data-id="jumping-jacks">
+  <img src="jumping-jacks.png" alt="Jumping Jacks" />
+  <div class="exercise-info">
+    <h3>Jumping Jacks <small>(1 min)</small></h3>
+    <p>Great warm‑up for cardiovascular health and calorie burn.</p>
+  </div>
+  <input type="checkbox" aria-label="Completed Jumping Jacks" />
+</article>
 
-    <section aria-label="Workout Routine" class="exercise-list">
-      <h2>Workout Routine</h2>
+<article class="exercise-card" data-id="bodyweight-squats">
+  <img src="bodyweight-squat.png" alt="Bodyweight Squats" />
+  <div class="exercise-info">
+    <h3>Bodyweight Squats <small>(15–20 reps)</small></h3>
+    <p>Engages legs &amp; core; boosts metabolism.</p>
+  </div>
+  <input type="checkbox" aria-label="Completed Bodyweight Squats" />
+</article>
 
-      <article class="exercise-card" data-id="jumping-jacks">
-        <img src="jumping-jacks.png" alt="Jumping Jacks illustration" />
-        <div class="exercise-info">
-          <h3>Jumping Jacks <small>(1 min)</small></h3>
-          <p>Great warm‑up for cardiovascular health and calorie burn.</p>
-        </div>
-        <input type="checkbox" aria-label="Completed Jumping Jacks" />
-      </article>
+<article class="exercise-card" data-id="push-ups">
+  <img src="push-ups.png" alt="Push‑Ups" />
+  <div class="exercise-info">
+    <h3>Push‑Ups <small>(10–15 reps)</small></h3>
+    <p>Strengthens upper body &amp; core.</p>
+  </div>
+  <input type="checkbox" aria-label="Completed Push-Ups" />
+</article>
 
-      <article class="exercise-card" data-id="bodyweight-squats">
-        <img src="bodyweight-squat.png" alt="Bodyweight Squats illustration" />
-        <div class="exercise-info">
-          <h3>Bodyweight Squats <small>(15–20 reps)</small></h3>
-          <p>Engages legs &amp; core; boosts metabolism.</p>
-        </div>
-        <input type="checkbox" aria-label="Completed Bodyweight Squats" />
-      </article>
+<article class="exercise-card" data-id="plank">
+  <img src="plank.png" alt="Plank" />
+  <div class="exercise-info">
+    <h3>Plank <small>(30–60 s)</small></h3>
+    <p>Excellent for core strength and belly‑fat reduction.</p>
+  </div>
+  <input type="checkbox" aria-label="Completed Plank" />
+</article>
 
-      <article class="exercise-card" data-id="push-ups">
-        <img src="push-ups.png" alt="Push‑Ups illustration" />
-        <div class="exercise-info">
-          <h3>Push‑Ups <small>(10–15 reps)</small></h3>
-          <p>Strengthens upper body &amp; core.</p>
-        </div>
-        <input type="checkbox" aria-label="Completed Push-Ups" />
-      </article>
+<article class="exercise-card" data-id="mountain-climbers">
+  <img src="mountain-climbers.png" alt="Mountain Climbers" />
+  <div class="exercise-info">
+    <h3>Mountain Climbers <small>(30 s)</small></h3>
+    <p>Full‑body cardio emphasizing abs.</p>
+  </div>
+  <input type="checkbox" aria-label="Completed Mountain Climbers" />
+</article>
 
-      <article class="exercise-card" data-id="plank">
-        <img src="plank.png" alt="Plank illustration" />
-        <div class="exercise-info">
-          <h3>Plank <small>(30–60 s)</small></h3>
-          <p>Excellent for core strength and belly‑fat reduction.</p>
-        </div>
-        <input type="checkbox" aria-label="Completed Plank" />
-      </article>
+<article class="exercise-card" data-id="reverse-lunges">
+  <img src="reverse-lunges.png" alt="Reverse Lunges" />
+  <div class="exercise-info">
+    <h3>Reverse Lunges <small>(12–15 each leg)</small></h3>
+    <p>Strengthens legs, glutes &amp; core stability.</p>
+  </div>
+  <input type="checkbox" aria-label="Completed Reverse Lunges" />
+</article>
 
-      <article class="exercise-card" data-id="mountain-climbers">
-        <img src="mountain-climbers.png" alt="Mountain Climbers illustration" />
-        <div class="exercise-info">
-          <h3>Mountain Climbers <small>(30 s)</small></h3>
-          <p>Full‑body cardio emphasizing abs.</p>
-        </div>
-        <input type="checkbox" aria-label="Completed Mountain Climbers" />
-      </article>
+<article class="exercise-card" data-id="bicycle-crunches">
+  <img src="bicycle-crunches.png" alt="Bicycle Crunches" />
+  <div class="exercise-info">
+    <h3>Bicycle Crunches <small>(15–20 each side)</small></h3>
+    <p>Directly targets abdominal muscles.</p>
+  </div>
+  <input type="checkbox" aria-label="Completed Bicycle Crunches" />
+</article>
 
-      <article class="exercise-card" data-id="reverse-lunges">
-        <img src="reverse-lunges.png" alt="Reverse Lunges illustration" />
-        <div class="exercise-info">
-          <h3>Reverse Lunges <small>(12–15 each leg)</small></h3>
-          <p>Strengthens legs, glutes &amp; core stability.</p>
-        </div>
-        <input type="checkbox" aria-label="Completed Reverse Lunges" />
-      </article>
-
-      <article class="exercise-card" data-id="bicycle-crunches">
-        <img src="bicycle-crunches.png" alt="Bicycle Crunches illustration" />
-        <div class="exercise-info">
-          <h3>Bicycle Crunches <small>(15–20 each side)</small></h3>
-          <p>Directly targets abdominal muscles.</p>
-        </div>
-        <input type="checkbox" aria-label="Completed Bicycle Crunches" />
-      </article>
-    </section>
-  </main>
-
-  <footer>&copy; 2025 Your Fitness Coach · Progress stored locally</footer>
-
-  <script>
-    document.querySelectorAll('.exercise-card').forEach(card => {
-      const id = card.dataset.id;
-      const checkbox = card.querySelector('input[type="checkbox"]');
-      const saved = localStorage.getItem(id);
-      if (saved === 'done') {
-        checkbox.checked = true;
-        card.classList.add('completed');
-      }
-      checkbox.addEventListener('change', () => {
-        if (checkbox.checked) {
-          localStorage.setItem(id, 'done');
-          card.classList.add('completed');
-        } else {
-          localStorage.removeItem(id);
-          card.classList.remove('completed');
-        }
-      });
-    });
-  </script>
+</section>
+</main>
+<footer>&copy; 2025 Your Fitness Coach · Progress stored locally</footer>
+<script>
+document.querySelectorAll('.exercise-card').forEach(card=>{
+  const id=card.dataset.id;
+  const cb=card.querySelector('input[type="checkbox"]');
+  if(localStorage.getItem(id)==='done'){cb.checked=true;card.classList.add('completed');}
+  cb.addEventListener('change',()=>{if(cb.checked){localStorage.setItem(id,'done');card.classList.add('completed');}else{localStorage.removeItem(id);card.classList.remove('completed');}});
+});
+</script>
 </body>
 </html>
